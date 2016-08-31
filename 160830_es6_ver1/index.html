@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+	body {
+		position: relative;
+		height: 5000px;
+		background: #e8e8e8;
+	}
+	.pagescroll {
+		position: absolute;
+		bottom: 20px;
+		right: 20px;
+	}
+	.code {
+		border: 1px solid #000;
+		padding: 10px;
+	}
+	.code span {
+		display: block;
+		font-size: 12px;
+		color: red;
+	}
+	</style>
+</head>
+<body>
+<p id="top">TOP</p>
+<h1>第一回es6講座</h1>
+<p>今すぐ使える！アロー関数とclass</p>
+
+
+<p>参考</p>
+<a href="http://shirusu-ni-tarazu.hatenablog.jp/entry/2016/02/15/020322" target="_balnk">【JS】jQueryの.onでES6のアローファンクションに書き換えたら動かなくなったので</a>
+<a href="http://qiita.com/takeharu/items/cbbe017bbdd120015ca0" target="_balnk">もうはじめよう、ES6~ECMAScript6の基本構文まとめ</a>
+
+<h2>es6の注意点</h2>
+<p>・thisがclassを見るようになるのは、アロー関数使用時のみみたいなので、一緒にprototypeの記述を混ぜるとthisがおかしくなる</p>
+<p>※アロー関数内部のthisは関数定義時に決定します</p>
+<p>従来のjsのthisは「関数がどのようにして呼ばれたか」によって変化する。</p>
+
+<h2>アロー関数の書き方</h2>
+<p class="code">１）var fn = () => {console.log('hoge');};<span>引数がない場合、()は省略不可</span></p>
+<p class="code">２）var fn = (x) => {console.log(x);};<span>引数がが一つの場合</span></p>
+<p class="code">３）var fn = x => {console.log(x);};<span>引数がが一つの場合、()を省略可能</span></p>
+<p class="code">４）var fn = (x, y, z) => {console.log(x, y, z);};<span>複数の場合は、カンマで区切る</span></p>
+<p class="code">５）(() => { console.log(); })();<span>即時関数</span></p>
+<p class="code">６）clickイベントなども書き方注意</p>
+<p>jsの場合は<br>
+(function () { /* 関数本体 */ }());<br>
+(function () { /* 関数本体 */ })();<br>
+どちらでも実行されるが、アロー関数は後者のみでないとエラーになるので注意。</p>
+
+
+<h2>テンプレート文字列</h2>
+<p class="code">var name = 'ハル';<br>
+var age = 21;<br>
+var str = '私の名前は${name}で年齢${age}です';<span>エスケープも気にしなくてOK</span></p>
+<p><a href="#top" class="pagescroll">TOPへ行く</a></p>
+<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+<script src="js/babel_scroll.js"></script>
+</body>
+</html>
